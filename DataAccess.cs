@@ -11,7 +11,7 @@ namespace T2009_NguyenThiLinh_ExamUWP
 {
     public class DataAccess
     {
-        public static string DatabaseName = "";
+        public static string DatabaseName = "contact_manager";
         public async static void InitializeDatabase()
         {
             await ApplicationData.Current.LocalFolder.CreateFileAsync(DatabaseName, CreationCollisionOption.OpenIfExists);
@@ -20,7 +20,7 @@ namespace T2009_NguyenThiLinh_ExamUWP
             {
                 db.Open();
                 var tableCommand = "CREATE TABLE IF NOT EXISTS contact(name NVARCHAR(255) NULL, " +
-                    "phone_number STRING(20) PRIMARY KEY";
+                    "phone_number VARCHAR(20) PRIMARY KEY";
                 SqliteCommand createTable = new SqliteCommand(tableCommand, db);
                 createTable.ExecuteReader();
             }
